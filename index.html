@@ -119,19 +119,26 @@
     }
 
     .nav-logo {
-      display: flex; align-items: center; gap: .6rem;
+      display: flex; align-items: center; gap: .7rem;
       text-decoration: none;
+      padding: .45rem .7rem .45rem .45rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.05);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
     }
     .nav-logo-img {
-      height: 44px; width: auto; object-fit: contain; display: block;
+      height: 42px; width: auto; object-fit: contain; display: block;
+      filter: drop-shadow(0 0 14px rgba(255,255,255,.12));
     }
     .nav-logo-name {
       font-family: var(--font-display);
       font-size: 1.15rem; font-weight: 700;
       letter-spacing: -.01em;
-      background: var(--grad-silver);
+      background: linear-gradient(135deg, #f0f0f6 0%, #b9b9d0 30%, #f4f4ff 65%, #9a9ab4 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 18px rgba(190,190,220,.12);
     }
 
     .nav-menu {
@@ -1089,6 +1096,26 @@
             <span class="tech-tag">Next.js</span>
             <span class="tech-tag">Node</span>
             <span class="tech-tag">Stripe</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass-card project-card reveal reveal-delay-3">
+        <div class="project-thumb">
+          <img src="img/mchezohub.png" alt="MchezoHub website screenshot" loading="lazy" />
+          <div class="project-overlay" aria-hidden="true">
+            <a href="https://mchezohub.netlify.app/" class="project-action" target="_blank" rel="noopener">Live Demo</a>
+            <a href="https://github.com/Antony-och" class="project-action" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">MchezoHub</h3>
+          <span class="project-meta">Gaming platform</span>
+          <p class="project-desc">A bright, mobile-first gaming and entertainment landing experience built to showcase products, attract users, and deliver a playful digital brand feel.</p>
+          <div class="project-tags">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
           </div>
         </div>
       </article>
