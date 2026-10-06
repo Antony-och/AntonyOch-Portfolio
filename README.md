@@ -24,32 +24,6 @@ This project is a single-page portfolio built with HTML, CSS, and JavaScript. It
 - `assets/` — downloadable assets such as CV/resume
 - `img/` — images and branding assets
 
-## Run locally
-
-Because this is a static site, you can open it directly in a browser:
-
-1. Open `index.html` in your browser, or
-2. Serve the project locally with a simple static server:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit:
-
-```text
-http://localhost:8000
-```
-
-## Deployment
-
-This portfolio is suitable for static hosting platforms such as:
-
-- Netlify
-- Vercel
-- GitHub Pages
-- Firebase Hosting
-
 ## Contact
 
 Email: antonyoch75@gmail.com
