@@ -409,6 +409,7 @@
       font-weight: 800;
       letter-spacing: -.03em;
       line-height: 1.1;
+      max-width: 760px;
     }
     .section-line {
       width: 36px; height: 2px;
@@ -471,6 +472,7 @@
     .about-content-col p {
       color: var(--c-muted);
       font-size: 1rem; line-height: 1.8;
+      max-width: 60ch;
     }
 
     .about-stats {
@@ -489,6 +491,43 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 1rem;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .service-card {
+      padding: 1.75rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      transition: transform .25s var(--ease-spring), box-shadow .25s, border-color .25s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lift);
+      border-color: var(--c-border-h);
+    }
+    .service-icon {
+      width: 46px; height: 46px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--c-border);
+      color: var(--c-silver-l);
+      font-size: 1.1rem;
+    }
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+    .service-copy {
+      color: var(--c-muted);
+      font-size: .92rem;
+      line-height: 1.7;
     }
     .skill-card {
       padding: 1.75rem 1.25rem 1.5rem;
@@ -578,7 +617,19 @@
       letter-spacing: -.015em;
       margin-bottom: .4rem;
     }
-    .project-desc { color: var(--c-muted); font-size: .9rem; line-height: 1.65; margin-bottom: 1rem; }
+    .project-meta {
+      display: inline-block;
+      margin-bottom: .55rem;
+      padding: .3rem .6rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(192,192,210,.18);
+      font-size: .7rem;
+      color: var(--c-silver-l);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .project-desc { color: var(--c-muted); font-size: .92rem; line-height: 1.7; margin-bottom: 1rem; }
     .project-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
     .tech-tag {
       padding: .25rem .7rem;
@@ -783,6 +834,7 @@
 
       <ul class="nav-menu" id="nav-menu" role="list">
         <li><a href="#home"     class="nav-link active">Home</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#about"    class="nav-link">About</a></li>
         <li><a href="#skills"   class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
@@ -802,8 +854,6 @@
     <div class="hero-container">
 
       <div class="hero-content">
-        <div class="hero-eyebrow">Available for opportunities</div>
-
         <h1>Hi, I'm <span class="t-gradient">Antony Onyi</span></h1>
 
         <div class="typewriter-row">
@@ -812,16 +862,16 @@
         </div>
 
         <p class="hero-bio">
-          Full-stack developer crafting fast, beautiful digital experiences — from pixel-perfect UIs to robust backend systems.
+          Full-stack developer helping businesses and startups turn ideas into polished, high-performing digital products.
         </p>
 
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">
             <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>
-            Get In Touch
+            Book a discovery call
           </a>
           <a href="#projects" class="btn btn-ghost">
-            View Projects
+            View my work
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
@@ -862,6 +912,33 @@
     </div>
   </section>
 
+  <!-- ── What I do ────────────────────────────────────────────── -->
+  <section class="section reveal" id="services">
+    <div class="section-header">
+      <span class="section-label">What I do</span>
+      <h2 class="section-title t-gradient">I build digital products that move ideas forward</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="services-grid">
+      <div class="glass-card service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-window-maximize"></i></div>
+        <div class="service-title">Business Websites</div>
+        <p class="service-copy">Modern, conversion-focused websites for brands and startups that need a stronger online presence and better user experience.</p>
+      </div>
+      <div class="glass-card service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+        <div class="service-title">Custom Web Apps</div>
+        <p class="service-copy">Tailored front-end and full-stack solutions built to match workflows, user needs, and growth goals.</p>
+      </div>
+      <div class="glass-card service-card reveal reveal-delay-3">
+        <div class="service-icon"><i class="fa-solid fa-database"></i></div>
+        <div class="service-title">Systems & APIs</div>
+        <p class="service-copy">Reliable backend logic, integrations, and scalable product foundations that keep digital experiences running smoothly.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ── About ─────────────────────────────────────────────────── -->
   <section class="section reveal" id="about">
     <div class="section-header">
@@ -878,12 +955,12 @@
       </div>
       <div class="about-content-col">
         <h3>I'm Antony <span class="t-gradient">✦</span></h3>
-        <p>I'm a full-stack developer with a passion for learning and problem-solving. I build web apps with clean interfaces and robust backend logic, powered by modern tools and databases.</p>
-        <p>Whether working on interactive UIs with React or APIs with Node.js, I'm always eager to tackle new challenges and deliver products that genuinely delight users.</p>
+        <p>I build modern digital products that help businesses look sharper, work better, and grow with confidence. My focus sits at the intersection of design and development — creating interfaces that are polished and systems that are dependable.</p>
+        <p>Whether I’m designing a product experience, building a front-end interface, or setting up the logic behind it, I care about creating work that feels intentional, performs well, and makes everyday user journeys smoother.</p>
         <div class="about-stats">
           <div class="about-stat">
             <span class="about-stat-num t-gradient">3+</span>
-            <span class="about-stat-label">Years coding</span>
+            <span class="about-stat-label">Years building</span>
           </div>
           <div class="about-stat">
             <span class="about-stat-num t-gradient">10+</span>
@@ -891,7 +968,7 @@
           </div>
           <div class="about-stat">
             <span class="about-stat-num t-gradient">5+</span>
-            <span class="about-stat-label">Happy clients</span>
+            <span class="about-stat-label">Clients served</span>
           </div>
         </div>
       </div>
@@ -910,12 +987,19 @@
       <div class="glass-card skill-card reveal reveal-delay-1"><div class="skill-icon"><i class="fa-brands fa-html5"></i></div><div class="skill-name">HTML5</div><div class="skill-level">Expert</div></div>
       <div class="glass-card skill-card reveal reveal-delay-1"><div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div><div class="skill-name">CSS3</div><div class="skill-level">Advanced</div></div>
       <div class="glass-card skill-card reveal reveal-delay-2"><div class="skill-icon"><i class="fa-brands fa-js"></i></div><div class="skill-name">JavaScript</div><div class="skill-level">Advanced</div></div>
-      <div class="glass-card skill-card reveal reveal-delay-2"><div class="skill-icon"><i class="fa-brands fa-react"></i></div><div class="skill-name">React</div><div class="skill-level">Intermediate</div></div>
-      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-brands fa-node-js"></i></div><div class="skill-name">Node.js</div><div class="skill-level">Intermediate</div></div>
-      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-solid fa-database"></i></div><div class="skill-name">MongoDB</div><div class="skill-level">Intermediate</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-2"><div class="skill-icon"><i class="fa-brands fa-react"></i></div><div class="skill-name">React</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-2"><div class="skill-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><div class="skill-name">Responsive UI</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-solid fa-code"></i></div><div class="skill-name">TypeScript</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div class="skill-name">Tailwind</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-brands fa-node-js"></i></div><div class="skill-name">Node.js</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-solid fa-database"></i></div><div class="skill-name">MongoDB</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-solid fa-server"></i></div><div class="skill-name">REST APIs</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-1"><div class="skill-icon"><i class="fa-solid fa-cloud"></i></div><div class="skill-name">Firebase</div><div class="skill-level">Intermediate</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-2"><div class="skill-icon"><i class="fa-solid fa-table"></i></div><div class="skill-name">SQL</div><div class="skill-level">Intermediate</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-solid fa-code-branch"></i></div><div class="skill-name">Git</div><div class="skill-level">Advanced</div></div>
       <div class="glass-card skill-card reveal reveal-delay-1"><div class="skill-icon"><i class="fa-brands fa-figma"></i></div><div class="skill-name">Figma</div><div class="skill-level">Advanced</div></div>
-      <div class="glass-card skill-card reveal reveal-delay-2"><div class="skill-icon"><i class="fa-brands fa-git-alt"></i></div><div class="skill-name">Git</div><div class="skill-level">Advanced</div></div>
-      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-solid fa-paintbrush"></i></div><div class="skill-name">UX/UI</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-2"><div class="skill-icon"><i class="fa-solid fa-paintbrush"></i></div><div class="skill-name">UX/UI</div><div class="skill-level">Advanced</div></div>
+      <div class="glass-card skill-card reveal reveal-delay-3"><div class="skill-icon"><i class="fa-solid fa-bolt"></i></div><div class="skill-name">Performance</div><div class="skill-level">Advanced</div></div>
     </div>
   </section>
 
@@ -939,7 +1023,8 @@
         </div>
         <div class="project-body">
           <h3 class="project-title">Tic Tac Toe Game</h3>
-          <p class="project-desc">Timeless Tic Tac Toe – easy to learn, hard to put down.</p>
+          <span class="project-meta">Game UI prototype</span>
+          <p class="project-desc">Built a lightweight interactive game experience with a clean UI, intuitive controls, and fast browser performance.</p>
           <div class="project-tags">
             <span class="tech-tag">HTML</span>
             <span class="tech-tag">CSS</span>
@@ -953,12 +1038,13 @@
           <img src="img/Fcc.png" alt="First Cup Coffee & Tea website" loading="lazy" />
           <div class="project-overlay" aria-hidden="true">
             <a href="https://firstcupcoffeetea.com/" class="project-action" target="_blank" rel="noopener">Live Demo</a>
-            <a href="#" class="project-action" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/Antony-och" class="project-action" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
         <div class="project-body">
           <h3 class="project-title">First Cup Coffee & Tea</h3>
-          <p class="project-desc">Fully responsive coffee-themed web app with interactive forms and polished micro-interactions.</p>
+          <span class="project-meta">Brand website</span>
+          <p class="project-desc">Created a responsive storefront experience with stronger product storytelling, cleaner flows, and a more premium brand feel.</p>
           <div class="project-tags">
             <span class="tech-tag">HTML</span>
             <span class="tech-tag">CSS</span>
@@ -972,12 +1058,13 @@
           <img src="img/Capture.JPG" alt="First Cup Coffee & Tea website" loading="lazy" />
           <div class="project-overlay" aria-hidden="true">
             <a href="https://fcctest.netlify.app/" class="project-action" target="_blank" rel="noopener">Live Demo</a>
-            <a href="#" class="project-action" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/Antony-och" class="project-action" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
         <div class="project-body">
-          <h3 class="project-title">First Cup Coffee & Tea 2</h3>
-          <p class="project-desc">Full-stack app with product search, cart/checkout, and Stripe payment integration.</p>
+          <h3 class="project-title">Coffee Brand Experience</h3>
+          <span class="project-meta">E-commerce concept</span>
+          <p class="project-desc">Designed a conversion-focused shopping experience that improved product discovery and gave the brand a clearer digital presence.</p>
           <div class="project-tags">
             <span class="tech-tag">Next.js</span>
             <span class="tech-tag">Node</span>
@@ -991,50 +1078,13 @@
           <img src="img/Capture2.JPG" alt="Mashirika Motors" loading="lazy" />
           <div class="project-overlay" aria-hidden="true">
             <a href="https://mashirikamotors.netlify.app/" class="project-action" target="_blank" rel="noopener">Live Demo</a>
-            <a href="#" class="project-action" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/Antony-och" class="project-action" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
         <div class="project-body">
           <h3 class="project-title">Mashirika Motors</h3>
-          <p class="project-desc">Full-stack app with product search, cart/checkout, and Stripe payment integration.</p>
-          <div class="project-tags">
-            <span class="tech-tag">Next.js</span>
-            <span class="tech-tag">Node</span>
-            <span class="tech-tag">Stripe</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="glass-card project-card reveal reveal-delay-3">
-        <div class="project-thumb">
-          <img src="img/Capture.JPG" alt="First Cup Coffee & Tea website" loading="lazy" />
-          <div class="project-overlay" aria-hidden="true">
-            <a href="https://fcctest.netlify.app/" class="project-action" target="_blank" rel="noopener">Live Demo</a>
-            <a href="#" class="project-action" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">First Cup Coffee & Tea 2</h3>
-          <p class="project-desc">Full-stack app with product search, cart/checkout, and Stripe payment integration.</p>
-          <div class="project-tags">
-            <span class="tech-tag">Next.js</span>
-            <span class="tech-tag">Node</span>
-            <span class="tech-tag">Stripe</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="glass-card project-card reveal reveal-delay-3">
-        <div class="project-thumb">
-          <img src="img/Capture.JPG" alt="First Cup Coffee & Tea website" loading="lazy" />
-          <div class="project-overlay" aria-hidden="true">
-            <a href="https://fcctest.netlify.app/" class="project-action" target="_blank" rel="noopener">Live Demo</a>
-            <a href="#" class="project-action" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">First Cup Coffee & Tea 2</h3>
-          <p class="project-desc">Full-stack app with product search, cart/checkout, and Stripe payment integration.</p>
+          <span class="project-meta">Dealership website</span>
+          <p class="project-desc">Built a dealership-focused interface to highlight inventory, strengthen brand trust, and create a smoother browsing experience.</p>
           <div class="project-tags">
             <span class="tech-tag">Next.js</span>
             <span class="tech-tag">Node</span>
@@ -1057,8 +1107,8 @@
     <div class="glass-card contact-layout">
       <div class="contact-info-col">
         <div>
-          <h3>Let's work together</h3>
-          <p style="margin-top:.6rem">Have a project in mind or just want to say hi? My inbox is always open.</p>
+          <h3>Let’s build your next digital product</h3>
+          <p style="margin-top:.6rem">Have an idea, a product gap, or a website in need of a redesign? I’d love to hear what you’re building.</p>
         </div>
 
         <div class="contact-item">
@@ -1115,11 +1165,10 @@
     <div class="footer-socials">
       <a href="https://www.linkedin.com/in/antony-och" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://github.com/Antony-och" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-link" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://instagram.com/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/" target="_blank" rel="noopener" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="mailto:antonyoch75@gmail.com" class="social-link" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+      <a href="https://www.behance.net/antonyonyi" target="_blank" rel="noopener" class="social-link" aria-label="Behance"><i class="fab fa-behance"></i></a>
     </div>
-    <div class="footer-copy">© 2025 Antony Onyi — Nairobi, Kenya</div>
+    <div class="footer-copy">© 2026 Antony Onyi — Nairobi, Kenya</div>
   </footer>
 
   <script>
@@ -1190,7 +1239,7 @@
 
       /* Typewriter */
       const el = document.getElementById('typewriter');
-      const words = ['modern web apps', 'clean interfaces', 'React experiences', 'robust APIs', 'beautiful UIs', 'great user experiences'];
+      const words = ['business websites', 'digital products', 'clean interfaces', 'full-stack systems', 'brand experiences', 'modern web apps'];
       let wi = 0, ci = 0, deleting = false;
       const TYPE = 80, ERASE = 40, PAUSE = 1800;
       function type() {
